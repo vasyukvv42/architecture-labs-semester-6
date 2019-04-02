@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.kpi.ProxyRationalExpressionTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-04-02T07:30:39" hostname="MacBook-Pro.local" time="0.014">
+  <properties/>
+  <testcase name="setNumeratorThrowsRuntimeException()" classname="edu.kpi.ProxyRationalExpressionTest" time="0.011"/>
+  <testcase name="setDenominatorThrowsRuntimeException()" classname="edu.kpi.ProxyRationalExpressionTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
