@@ -1,4 +1,4 @@
-package edu.kpi;
+package edu.kpi.model;
 
 import java.io.PrintStream;
 
@@ -8,11 +8,6 @@ public class RealRationalExpression extends Polynomial implements RationalExpres
     public RealRationalExpression(Polynomial numerator, Polynomial denominator) {
         super(numerator.symbol, numerator.coefficients);
         this.denominator = denominator;
-    }
-
-    @Override
-    public void print(PrintStream out) {
-        out.println(toString());
     }
 
     @Override

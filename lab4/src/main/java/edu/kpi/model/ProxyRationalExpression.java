@@ -1,17 +1,10 @@
-package edu.kpi;
-
-import java.io.PrintStream;
+package edu.kpi.model;
 
 public class ProxyRationalExpression implements RationalExpression {
     private RealRationalExpression rationalExpression;
 
     public ProxyRationalExpression(Polynomial numerator, Polynomial denominator) {
         rationalExpression = new RealRationalExpression(numerator, denominator);
-    }
-
-    @Override
-    public void print(PrintStream out) {
-        rationalExpression.print(out);
     }
 
     @Override

@@ -1,4 +1,6 @@
-package edu.kpi;
+package edu.kpi.model;
+
+import edu.kpi.reflection.CallThis;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -39,7 +41,7 @@ public class Polynomial {
                         sb.append(' ');
                     }
 
-                    if (c != 1)
+                    if (c != 1 || currentPower == 0)
                         sb.append(Math.abs(c));
 
                     if (currentPower != 0)
