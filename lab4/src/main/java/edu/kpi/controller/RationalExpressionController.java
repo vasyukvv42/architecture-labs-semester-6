@@ -1,8 +1,9 @@
 package edu.kpi.controller;
 
-import edu.kpi.model.Polynomial;
-import edu.kpi.model.ProxyRationalExpression;
-import edu.kpi.model.RationalExpression;
+import edu.kpi.model.builder.PolynomialBuilder;
+import edu.kpi.model.builder.RationalExpressionBuilder;
+import edu.kpi.model.entity.Polynomial;
+import edu.kpi.model.entity.RationalExpression;
 import edu.kpi.view.RationalExpressionView;
 
 import java.io.InputStream;
@@ -24,7 +25,10 @@ public class RationalExpressionController {
         final var numerator = readPolynomial();
         final var denominator = readPolynomial();
 
-        model = new ProxyRationalExpression(numerator, denominator);
+        model = new RationalExpressionBuilder()
+                .setNumerator(numerator)
+                .setDenominator(denominator)
+                .createRationalExpression();
 
         view.showRationalExpression(model);
     }
@@ -43,7 +47,10 @@ public class RationalExpressionController {
             coefficients.add(scanner.nextDouble());
         }
 
-        return new Polynomial(symbol, coefficients);
+        return new PolynomialBuilder()
+                .setSymbol(symbol)
+                .setCoefficients(coefficients)
+                .createPolynomial();
     }
 
     public RationalExpression getModel() {

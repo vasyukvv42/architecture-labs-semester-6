@@ -1,10 +1,9 @@
-package edu.kpi.model;
-
-import edu.kpi.reflection.CallThis;
+package edu.kpi.model.entity;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Polynomial {
@@ -20,6 +19,22 @@ public class Polynomial {
 
     public Polynomial(Collection<Double> coefficients) {
         this('x', coefficients);
+    }
+
+    public List<Double> getCoefficients() {
+        return coefficients;
+    }
+
+    public char getSymbol() {
+        return symbol;
+    }
+
+    public void setCoefficients(List<Double> coefficients) {
+        this.coefficients = coefficients;
+    }
+
+    public void setSymbol(char symbol) {
+        this.symbol = symbol;
     }
 
     @Override
@@ -58,21 +73,17 @@ public class Polynomial {
                 .collect(Collectors.joining(" ", "(", ")"));
     }
 
-    public List<Double> getCoefficients() {
-        return coefficients;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Polynomial that = (Polynomial) o;
+        return symbol == that.symbol &&
+                coefficients.equals(that.coefficients);
     }
 
-    public char getSymbol() {
-        return symbol;
-    }
-
-    @CallThis
-    public void esketit() {
-        System.err.println("ESKETIT");
-    }
-
-    @CallThis
-    public void eshkere() {
-        System.err.println("ESHKERE");
+    @Override
+    public int hashCode() {
+        return Objects.hash(coefficients, symbol);
     }
 }

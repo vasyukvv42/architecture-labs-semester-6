@@ -1,32 +1,28 @@
-package edu.kpi.model;
+package edu.kpi.model.entity;
 
-import java.io.PrintStream;
+import edu.kpi.model.builder.PolynomialBuilder;
 
-public class RealRationalExpression extends Polynomial implements RationalExpression {
+public class RationalExpression extends Polynomial {
     private Polynomial denominator;
 
-    public RealRationalExpression(Polynomial numerator, Polynomial denominator) {
+    public RationalExpression(Polynomial numerator, Polynomial denominator) {
         super(numerator.symbol, numerator.coefficients);
         this.denominator = denominator;
     }
 
-    @Override
     public Polynomial getNumerator() {
-        return new Polynomial(symbol, coefficients);
+        return new PolynomialBuilder().setSymbol(symbol).setCoefficients(coefficients).createPolynomial();
     }
 
-    @Override
     public void setNumerator(Polynomial numerator) {
         this.coefficients = numerator.coefficients;
         this.symbol = numerator.symbol;
     }
 
-    @Override
     public Polynomial getDenominator() {
         return denominator;
     }
 
-    @Override
     public void setDenominator(Polynomial denominator) {
         this.denominator = denominator;
     }
